@@ -6,8 +6,7 @@
 -- Generation Time: Apr 29, 2017 at 10:30 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
-create database timetable;
-use timetable;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 

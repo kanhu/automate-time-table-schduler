@@ -3,18 +3,13 @@ package scheduler;
 import java.io.File;
 import java.util.*;
 
-public class inputdata {
+public class Inputdata {
 
-	public static StudentGroup[] studentgroup;
-	public static Teacher[] teacher;
+	public static StudentGroup[] studentgroup = new StudentGroup[100];
+	public static Teacher[] teacher = new Teacher[100];
 	public static double crossoverrate = 1.0, mutationrate = 0.1;
 	public static int nostudentgroup, noteacher;
 	public static int hoursperday, daysperweek;
-
-	public inputdata() {
-		studentgroup = new StudentGroup[100];
-		teacher =   new Teacher[100];
-	}
 
 	boolean classformat(String l) {
 		StringTokenizer st = new StringTokenizer(l, " ");
@@ -24,18 +19,24 @@ public class inputdata {
 			return (false);
 	}
 
-	public void takeinput()// takes input from file input.txt
+	public static void takeinput() {
+		String fileName="D:\\Eclipse\\code\\TimeTable\\Time-table-scheduler\\input.txt";
+		Inputdata.takeinputFromFile(fileName);
+	}
+
+	public static void takeinputFromFile(String fileName)// takes input from file input.txt
 	{
-		//this method of taking input through file is only for development purpose so hours and days are hard coded
+		// this method of taking input through file is only for development purpose so
+		// hours and days are hard coded
 		hoursperday = 7;
 		daysperweek = 5;
 		try {
-			File file = new File("D:\\Time-table-scheduler-master\\input.txt");
+			File file = new File(fileName);
 			// File file = new File(System.getProperty("user.dir") +
 			// "/input.txt");
-			
+
 			Scanner scanner = new Scanner(file);
-			
+
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
 
@@ -59,7 +60,7 @@ public class inputdata {
 					nostudentgroup = i;
 				}
 
-				//input teachers
+				// input teachers
 				if (line.equalsIgnoreCase("teachers")) {
 					int i = 0;
 					while (!(line = scanner.nextLine()).equalsIgnoreCase("end")) {
@@ -85,7 +86,7 @@ public class inputdata {
 	}
 
 	// assigning a teacher for each subject for every studentgroup
-	public void assignTeacher() {
+	public static void assignTeacher() {
 
 		// looping through every studentgroup
 		for (int i = 0; i < nostudentgroup; i++) {
@@ -98,10 +99,12 @@ public class inputdata {
 
 				String subject = studentgroup[i].subject[j];
 
-				// looping through every teacher to find which teacher teaches the current subject
+				// looping through every teacher to find which teacher teaches the current
+				// subject
 				for (int k = 0; k < noteacher; k++) {
 
-					// if such teacher found,checking if he should be assigned the subject or some other teacher based on prior assignments
+					// if such teacher found,checking if he should be assigned the subject or some
+					// other teacher based on prior assignments
 					if (teacher[k].subject.equalsIgnoreCase(subject)) {
 
 						// if first teacher found for this subject
@@ -110,7 +113,8 @@ public class inputdata {
 							teacherid = k;
 						}
 
-						// if teacher found has less no of pre assignments than the teacher assigned for this subject
+						// if teacher found has less no of pre assignments than the teacher assigned for
+						// this subject
 						else if (assignedmin > teacher[k].assigned) {
 							assignedmin = teacher[k].assigned;
 							teacherid = k;
@@ -121,7 +125,7 @@ public class inputdata {
 				// 'assigned' variable for selected teacher incremented
 				teacher[teacherid].assigned++;
 
-				studentgroup[i].teacherid[j]= teacherid;
+				studentgroup[i].teacherid[j] = teacherid;
 			}
 		}
 	}

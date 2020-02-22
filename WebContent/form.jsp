@@ -133,7 +133,7 @@ response.setHeader ("Expires", "0"); //prevents caching at the proxy server
 
 					<div id="2"></div>
 					<br /> <span>*subject names alotted to a batch must be from the
-						subjects taught by teachers </span><br /> <span>total hours of
+						subjects taught by teachers (Ignore case)</span><br /> <span>**total hours of
 						study for any batch must not exceed total available hours</span>
 					<hr>
 
@@ -141,10 +141,10 @@ response.setHeader ("Expires", "0"); //prevents caching at the proxy server
 
 				</form>
 				<hr />
-				<!--  <span
+				<span
 					style="text-decoration: underline; text-shadow: black; font-size: medium;"><a
 					href="view-timetable"><i>Test with custom input
-							(Development Purpose only)</i></a></span>-->
+							(Development Purpose only)</i></a></span>
 			</div>
 		</div>
 

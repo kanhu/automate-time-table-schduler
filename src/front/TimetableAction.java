@@ -1,5 +1,6 @@
 package front;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -16,34 +17,33 @@ public class TimetableAction extends ActionSupport implements ServletRequestAwar
 	String hoursperday, breakstart, breakend, daysperweek;
 	int cumusubcount = 0;
 
-	public String fromFile(){
-		//invokes method to take input
-		new inputdata().takeinput();
-		
-		//invokes algorithm
+	public String fromFile() {
+		// invokes method to take input
+		//Inputdata.takeinput();
+		Inputdata.takeinputFromFile("D:\\Eclipse\\code\\TimeTable\\Time-table-scheduler\\InputTest2");
+
+		// invokes algorithm
 		new SchedulerMain();
-		
-		//grabs final chromosome i.e. the output
-		Chromosome finalson =SchedulerMain.finalson;
-		
-		//sets the final chromosome in request scope to be fetched by view page
+
+		// grabs final chromosome i.e. the output
+		Chromosome finalson = SchedulerMain.finalson;
+
+		// sets the final chromosome in request scope to be fetched by view page
 		getServletRequest().setAttribute("son", finalson);
-		
+
 		return SUCCESS;
 	}
 
 	public String fromForm() {
 
-		inputdata id = new inputdata();
-
-		inputdata.daysperweek = Integer.parseInt(daysperweek);
-		inputdata.hoursperday = Integer.parseInt(hoursperday);
-		inputdata.nostudentgroup = studentgroup.size();
+		Inputdata.daysperweek = Integer.parseInt(daysperweek);
+		Inputdata.hoursperday = Integer.parseInt(hoursperday);
+		Inputdata.nostudentgroup = studentgroup.size();
 
 		for (int i = 0; i < studentgroup.size(); i++) {
 
-			inputdata.studentgroup[i] = new StudentGroup();
-			StudentGroup temp = inputdata.studentgroup[i];
+			Inputdata.studentgroup[i] = new StudentGroup();
+			StudentGroup temp = Inputdata.studentgroup[i];
 
 			temp.setId(i);
 			temp.setName(studentgroup.get(i));
@@ -63,21 +63,23 @@ public class TimetableAction extends ActionSupport implements ServletRequestAwar
 
 		}
 
-		inputdata.noteacher = teacher.size();
+		Inputdata.noteacher = teacher.size();
 		for (int i = 0; i < teacher.size(); i++) {
 
-			inputdata.teacher[i] = new Teacher();
-			Teacher tmp = inputdata.teacher[i];
+			Inputdata.teacher[i] = new Teacher();
+			Teacher tmp = Inputdata.teacher[i];
 
 			tmp.setId(i);
 			tmp.setName(teacher.get(i));
 			tmp.setSubject(teachersubject.get(i));
 		}
-		
-		//after getting all input, teachers are assigned to each subject
-		id.assignTeacher();
+		Arrays.stream(Inputdata.studentgroup).forEach(System.out::println);
+		Arrays.stream(Inputdata.teacher).forEach(System.out::println);
 
-		new scheduler.SchedulerMain();
+		// after getting all input, teachers are assigned to each subject
+		Inputdata.assignTeacher();
+
+		new SchedulerMain();
 
 		Chromosome finalson = scheduler.SchedulerMain.finalson;
 		getServletRequest().setAttribute("son", finalson);

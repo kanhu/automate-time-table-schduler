@@ -3,28 +3,28 @@ package scheduler;
 public class Utility {
 	
 	public static void printInputData(){
-		System.out.println("Nostgrp="+inputdata.nostudentgroup+" Noteachers="+inputdata.noteacher+" daysperweek="+inputdata.daysperweek+" hoursperday="+inputdata.hoursperday);
-		for(int i=0;i<inputdata.nostudentgroup;i++){
+		System.out.println("Nostgrp="+Inputdata.nostudentgroup+" Noteachers="+Inputdata.noteacher+" daysperweek="+Inputdata.daysperweek+" hoursperday="+Inputdata.hoursperday);
+		for(int i=0;i<Inputdata.nostudentgroup;i++){
 			
-			System.out.println(inputdata.studentgroup[i].id+" "+inputdata.studentgroup[i].name);
+			System.out.println(Inputdata.studentgroup[i].id+" "+Inputdata.studentgroup[i].name);
 			
-			for(int j=0;j<inputdata.studentgroup[i].nosubject;j++){
-				System.out.println(inputdata.studentgroup[i].subject[j]+" "+inputdata.studentgroup[i].hours[j]+" hrs "+inputdata.studentgroup[i].teacherid[j]);
+			for(int j=0;j<Inputdata.studentgroup[i].nosubject;j++){
+				System.out.println(Inputdata.studentgroup[i].subject[j]+" "+Inputdata.studentgroup[i].hours[j]+" hrs "+Inputdata.studentgroup[i].teacherid[j]);
 			}
 			System.out.println("");
 		}
 		
-		for(int i=0;i<inputdata.noteacher;i++){			
-			System.out.println(inputdata.teacher[i].id+" "+inputdata.teacher[i].name+" "+inputdata.teacher[i].subject+" "+inputdata.teacher[i].assigned);
+		for(int i=0;i<Inputdata.noteacher;i++){			
+			System.out.println(Inputdata.teacher[i].id+" "+Inputdata.teacher[i].name+" "+Inputdata.teacher[i].subject+" "+Inputdata.teacher[i].assigned);
 		}
 	}
 	
 	
 	public static void printSlots(){
 		
-		int days=inputdata.daysperweek;
-		int hours=inputdata.hoursperday;
-		int nostgrp=inputdata.nostudentgroup;
+		int days=Inputdata.daysperweek;
+		int hours=Inputdata.hoursperday;
+		int nostgrp=Inputdata.nostudentgroup;
 		System.out.println("----Slots----");
 		for(int i=0;i<days*hours*nostgrp;i++){
 			if(TimeTable.slot[i]!=null)

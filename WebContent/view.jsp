@@ -46,7 +46,7 @@
 	Gene[] gene=chrom.gene;
 	
 	//days(only for display purpose)
-	String[] day=new String[days];
+	//String[] day=new String[days];
 	
 	
 	//slot and break timings(only for display purpose)
@@ -71,7 +71,7 @@
 	//printing name of batch
 	if(TimeTable.slot[gene[i].slotno[l]]!=null){
 		
-		out.print("<div class='container'><h3>"+TimeTable.slot[gene[i].slotno[l]].studentgroup.name+"</h3>");
+		out.print("<div class='container'><h3>"+TimeTable.slot[gene[i].slotno[l]].getStudentgroup().getName()+"</h3>");
 		status=true;
 	
 	}
@@ -116,8 +116,8 @@
 		
 		//checking if this slot is free otherwise printing it
 		if(TimeTable.slot[gene[i].slotno[k+j*hours]]!=null){
-			String teachername=scheduler.Inputdata.teacher[TimeTable.slot[gene[i].slotno[k+j*hours]].teacherid].getName();
-			out.print("<td style='text-align:center'>"+TimeTable.slot[gene[i].slotno[k+j*hours]].subject+"<br>"+teachername+"</td>");
+			String teachername=scheduler.Inputdata.teacher[TimeTable.slot[gene[i].slotno[k+j*hours]].getTeacherid()].getName();
+			out.print("<td style='text-align:center'>"+TimeTable.slot[gene[i].slotno[k+j*hours]].getSubject()+"<br>"+teachername+"</td>");
 		}
 		else out.print("<td></td>");
 	
@@ -204,7 +204,7 @@ for(int i=0;i<nostgrp;i++){
 	}
 }
 
-*/
+ */
 
 
 %>

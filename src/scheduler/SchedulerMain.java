@@ -1,6 +1,9 @@
 package scheduler;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class SchedulerMain{
 
@@ -69,7 +72,7 @@ public class SchedulerMain{
 				mother=selectParentRoulette();
 		
 				//crossover
-				if(new Random().nextDouble()<inputdata.crossoverrate){
+				if(new Random().nextDouble()<Inputdata.crossoverrate){
 					son=crossover(father,mother);	
 				}else
 					son=father;
@@ -132,7 +135,7 @@ public class SchedulerMain{
 	public void customMutation(Chromosome c){
 				
 		double newfitness=0,oldfitness=c.getFitness();
-		int geneno=new Random().nextInt(inputdata.nostudentgroup);
+		int geneno=new Random().nextInt(Inputdata.nostudentgroup);
 				
 		int i=0;
 		while(newfitness<oldfitness){
@@ -155,7 +158,7 @@ public class SchedulerMain{
 	//Two point crossover
 	public Chromosome crossover(Chromosome father,Chromosome mother){
 			
-		int randomint=new Random().nextInt(inputdata.nostudentgroup);
+		int randomint=new Random().nextInt(Inputdata.nostudentgroup);
 		Gene temp=father.gene[randomint].deepClone();
 		father.gene[randomint]=mother.gene[randomint].deepClone();
 		mother.gene[randomint]=temp;
@@ -216,21 +219,21 @@ public class SchedulerMain{
 	
 	//simple Mutation operation
 	public void mutation(Chromosome c){
-		int geneno=new Random().nextInt(inputdata.nostudentgroup);
+		int geneno=new Random().nextInt(Inputdata.nostudentgroup);
 		int temp=c.gene[geneno].slotno[0];
-		for(int i=0;i<inputdata.daysperweek*inputdata.hoursperday-1;i++){
+		for(int i=0;i<Inputdata.daysperweek*Inputdata.hoursperday-1;i++){
 			c.gene[geneno].slotno[i]=c.gene[geneno].slotno[i+1];
 		}
-		c.gene[geneno].slotno[inputdata.daysperweek*inputdata.hoursperday-1]=temp;
+		c.gene[geneno].slotno[Inputdata.daysperweek*Inputdata.hoursperday-1]=temp;
 	}
 	
 	
 	//swap mutation
 	public void swapMutation(Chromosome c){
 		
-		int geneno=new Random().nextInt(inputdata.nostudentgroup);
-		int slotno1=new Random().nextInt(inputdata.hoursperday*inputdata.daysperweek);
-		int slotno2=new Random().nextInt(inputdata.hoursperday*inputdata.daysperweek);
+		int geneno=new Random().nextInt(Inputdata.nostudentgroup);
+		int slotno1=new Random().nextInt(Inputdata.hoursperday*Inputdata.daysperweek);
+		int slotno2=new Random().nextInt(Inputdata.hoursperday*Inputdata.daysperweek);
 		
 		int temp=c.gene[geneno].slotno[slotno1];
 		c.gene[geneno].slotno[slotno1]=c.gene[geneno].slotno[slotno2];
@@ -241,7 +244,6 @@ public class SchedulerMain{
 	
 	
 	public static void main(String[] args) {
-		inputdata id = new inputdata(); id.takeinput();
 		new SchedulerMain();
 	}
 }

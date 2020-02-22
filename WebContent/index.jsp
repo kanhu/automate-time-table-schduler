@@ -32,7 +32,12 @@
 <link href="css/agency.min.css" rel="stylesheet">
 
 
-
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
@@ -84,7 +89,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">About this Project</h2>
+					<h2 class="section-heading">About this Software</h2>
 					<h3 class="section-subheading text-muted">Read to know what
 						this is about.</h3>
 				</div>
@@ -102,9 +107,9 @@
 									<h4 class="subheading">Introduction</h4>
 								</div>
 								<div class="timeline-body">
-									<p class="text-muted">This is a website to generate
-										complete college timetable for which would be a tedious and
-										job to do by hand (on paper). It provides a very
+									<p class="text-muted">This is a free site to generate
+										complete college schedule for which would be a tedious and
+										error prone task to do by hand (on paper). We provide a very
 										user friendly interface to work with and you will get your
 										time table generated in seconds.</p>
 								</div>
@@ -139,8 +144,10 @@
 									<p class="text-muted">The software makes sure that the
 										generated time table is feasible at the least (there is no
 										clash) ,students get required hours each week and teachers are
-										given equal load.
-				                    </p>
+										given equal load. The user will be given more options to
+										refine timetable using some soft constraints(like setting
+										preference for a teacher,guest faculty, lab consideration etc)
+										in a later version.</p>
 								</div>
 							</div>
 						</li>
@@ -148,7 +155,7 @@
 						<li class="timeline-inverted"><a href="form">
 								<div class="timeline-image">
 									<h4>
-										Get Started
+										Get started <br>with us <br>today!
 									</h4>
 								</div>
 						</a></li>
@@ -160,7 +167,7 @@
 	</section>
 
 
-	<!-- Features Section 
+	<!-- Features Section -->
 	<section id="services" class="bg-light-gray">
 		<div class="container">
 			<div class="row">
@@ -223,10 +230,10 @@
 
 			</div>
 		</div>
-	</section>-->
+	</section>
 
 
-	<!-- Contact Section 
+	<!-- Contact Section -->
 	<section id="contact">
 		<div class="container">
 			<div class="row">
@@ -278,7 +285,7 @@
 				</div>
 			</div>
 		</div>
-	</section>-->
+	</section>
 
 	<footer>
 		<div class="container">
@@ -288,19 +295,19 @@
 				<div class="col-md-4">
 					<ul class="list-inline social-buttons">
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="https://www.facebook.com/pranav.khurana.56"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/pranav-khurana-421525115"><i class="fa fa-linkedin"></i></a></li>
 					</ul>
 				</div>
 				<div class="col-md-4">
 					<ul class="list-inline quicklinks">
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms of Use</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div> <span style="color: #e74c3c;font-size:30px;">&hearts;</span> <a href="#"></a></div>
+		<div>Made with <span style="color: #e74c3c;font-size:30px;">&hearts;</span> by <a href="https://www.linkedin.com/in/pranav-khurana-421525115">Pranav</a> at JavaTpoint</div>
 	</footer>
 
 

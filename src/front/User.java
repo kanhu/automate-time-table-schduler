@@ -7,6 +7,8 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import scheduler.Inputdata;
+
 public class User extends ActionSupport implements SessionAware {
 	String username;
 	String password;

@@ -8,7 +8,7 @@ public class UserDao {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/time_table_schedulings", "root", "krishnas");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pcmdev", "root", "krishnas");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
