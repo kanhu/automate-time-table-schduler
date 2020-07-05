@@ -10,6 +10,8 @@ public class Inputdata {
 	public static double crossoverrate = 1.0, mutationrate = 0.1;
 	public static int nostudentgroup, noteacher;
 	public static int hoursperday, daysperweek;
+	public static String[] startTime;
+	public static String[] endTime;
 
 	boolean classformat(String l) {
 		StringTokenizer st = new StringTokenizer(l, " ");
@@ -74,7 +76,14 @@ public class Inputdata {
 					}
 					noteacher = i;
 				}
-
+				
+				// read the start and end time if present
+				
+				if (line.equalsIgnoreCase("PreoidTime")) {
+					Inputdata.startTime=scanner.nextLine().split(",");
+					Inputdata.endTime=scanner.nextLine().split(",");
+				}
+				
 			}
 			scanner.close();
 		} catch (Exception e) {

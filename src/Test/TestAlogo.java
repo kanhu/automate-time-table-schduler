@@ -8,7 +8,7 @@ import scheduler.SchedulerMain;
 
 public class TestAlogo {
 	public static void main(String[] args) {
-		Inputdata.takeinputFromFile("D:\\Eclipse\\code\\TimeTable\\Time-table-scheduler\\InputTest2");
+		Inputdata.takeinputFromFile("/Users/k0d03gd/project/poc/code/automate-time-table-schduler/inputWithTime.txt");
 		
 		Arrays.stream(Inputdata.studentgroup).forEach(System.out::println);
 		Arrays.stream(Inputdata.teacher).forEach(System.out::println);
@@ -18,6 +18,8 @@ public class TestAlogo {
 		// grabs final chromosome i.e. the output
 		Chromosome finalson = SchedulerMain.finalson;
 		finalson.printTimeTable();
+		
+		System.out.println(Inputdata.startTime[2]);
 
 	}
 }

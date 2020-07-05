@@ -56,6 +56,16 @@
 		start[i]=request.getParameter("start"+i);
 		end[i]=request.getParameter("end"+i);
 	}
+	// start and end time are taken from the request parameter so it will be empty when it is process from file
+	// so if they are null then read the data from request attribute
+	
+	if(Inputdata.startTime !=null && Inputdata.startTime.length >0 && start[0] ==null){
+		for(int i=0;i<hours;i++){
+			start[i]=Inputdata.startTime[i];
+			end[i]=Inputdata.endTime[i];
+		}
+	}
+	
 	int breakslot=0;
 	String sbreakslot=request.getParameter("breakslot");
 	if(sbreakslot!=null)breakslot=Integer.parseInt(sbreakslot);

@@ -20,7 +20,7 @@ public class TimetableAction extends ActionSupport implements ServletRequestAwar
 	public String fromFile() {
 		// invokes method to take input
 		//Inputdata.takeinput();
-		Inputdata.takeinputFromFile("D:\\Eclipse\\code\\TimeTable\\Time-table-scheduler\\InputTest2");
+		Inputdata.takeinputFromFile("/Users/k0d03gd/project/poc/code/automate-time-table-schduler/inputWithTime.txt");
 
 		// invokes algorithm
 		new SchedulerMain();
